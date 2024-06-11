@@ -21,3 +21,13 @@ document.getElementById('btn-search').addEventListener('click', () => {
     const userName = document.getElementById('input-search').value
     getUserProfile(userName)
 })
+
+document.getElementById('input-search').addEventListener('keyup', (e) => {
+    const userName = e.target.value
+    const key = e.which || e.keyCode
+    const EnterPressed = key === 13
+
+    if (EnterPressed) {
+        getUserProfile(userName)
+    }
+})
