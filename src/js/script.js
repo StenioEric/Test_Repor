@@ -4,7 +4,7 @@ async function user(userName) {
 }
 
 async function repos(userName) {
-    const  response = await fetch(`https://api.github.com/users/${userName}/repos`)
+    const  response = await fetch(`https://api.github.com/users/${userName}/repos?per`)
     return await response.json()
 }
 
