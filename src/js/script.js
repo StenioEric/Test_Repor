@@ -1,12 +1,5 @@
-async function user(userName) {
-    const  response = await fetch(`https://api.github.com/users/${userName}`)
-    return await response.json()
-}
-
-async function repos(userName) {
-    const  response = await fetch(`https://api.github.com/users/${userName}/repos?per`)
-    return await response.json()
-}
+import { user } from '/src/js/services/user.js'
+import { repositories } from '/src/js/services/repositories.js'
 
 function getUserProfile(userName){
     user(userName).then(userData => {
