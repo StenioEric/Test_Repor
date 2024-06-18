@@ -1,8 +1,11 @@
-import { user } from '/src/js/services/user.js'
-import { repositories } from '/src/js/services/repositories.js'
+import { getUser } from '/src/js/services/user.js'
+import { getRepositories } from '/src/js/services/repositories.js'
+import { user } from '/src/js/objects/user.js'
+
+
 
 function getUserProfile(userName){
-    user(userName).then(userData => {
+    getUser(userName).then(userData => {
         let userInfo =  `</div> class = "info">
                          <img src= "${userData.avatar_url}" alt = "Foto do perfil do usuário" />
                         <div class = "data">
@@ -35,7 +38,7 @@ document.getElementById('input-search').addEventListener('keyup', (e) => {
 
 
 function getUserRepositories(userName) {
-    repos(userName).then(reposData => {
+    getRepositories(userName).then(reposData => {
 
         let repositoriesItems = "";
         reposData.forEach(repo => {
