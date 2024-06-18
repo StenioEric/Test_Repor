@@ -1,23 +1,23 @@
 import { getUser } from '/src/js/services/user.js'
 import { getRepositories } from '/src/js/services/repositories.js'
 import { user } from '/src/js/objects/user.js'
+import { screen } from '/src/js/objects/screen.js'
 
 
 
-function getUserProfile(userName){
-    getUser(userName).then(userData => {
-        let userInfo =  `</div> class = "info">
-                         <img src= "${userData.avatar_url}" alt = "Foto do perfil do usuário" />
-                        <div class = "data">
-                            <h1>${userData.name ?? 'Não possui nome cadastrado'} </h1>
-                            <p>${userData.bio ?? 'Não possui bio cadastrada'}</p>
-                        </div>
-                        </div>`
-                            
-        document.querySelector('.profile-data').innerHTML = userInfo
-        getUserRepositories(userName)
+async function getUserProfile(userName){
 
-    })
+    const userResponse = await getUser(userName)
+    user.setInfo(userResponse)
+    console.log(user)
+
+    screen.renderUser(user)
+
+    // getUser(userName).then(userData => {
+    //    
+    //     getUserRepositories(userName)
+
+    // })
 }
 
 document.getElementById('btn-search').addEventListener('click', () => {
