@@ -1,7 +1,7 @@
 import { baseUrl, repoQuant } from '/src/js/variables.js';
 
 async function getRepositories(userName) {
-    const response = await fetch(`${baseUrl}${userName}/repos?per_page=${repoQuant}`);
+    const response = await fetch(`${baseUrl}/${userName}/repos?per_page=${repoQuant}`);
     return await response.json();
 }
 
