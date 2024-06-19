@@ -7,7 +7,8 @@ const user = {
     setInfo(gitHubUser){
         this.avatarUrl = gitHubUser.avatar_url
         this.name = gitHubUser.name
-        this.bio = gitHubUser.login
+        this.bio = gitHubUser.bio
+        this.user = gitHubUser.login
 
     },
     setRepositories(repositories){
