@@ -21,6 +21,10 @@ async function getUserData(userName){
 
 document.getElementById('btn-search').addEventListener('click', () => {
     const userName = document.getElementById('input-search').value;
+    if(userName.length === 0){
+        alert('Preencha o campo com o nome do usuário do GitHub')
+        return
+    }
     getUserData(userName);
     
 })
@@ -31,7 +35,12 @@ document.getElementById('input-search').addEventListener('keyup', (e) => {
     const EnterPressed = key === 13
 
     if (EnterPressed) {
+        if(userName.length === 0){
+            alert('Preencha o campo com o nome do usuário do GitHub')
+            return
+        }   
         getUserData(userName)
     }
+    
 })
 
